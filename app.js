@@ -125,3 +125,26 @@ let deepCopy = JSON.parse(JSON.stringify(original))
 deepCopy.address.city = "Bangalore"
 
 console.log(original)
+
+// Implement Private Counter
+
+const createCounter = () => {
+  let count = 0
+  return {
+    increment: () => {
+      count++
+      return count
+    },
+    decrement: () => {
+      count--
+      return count
+    },
+  }
+}
+
+const counter = createCounter()
+console.log(counter.increment())
+console.log(counter.increment())
+console.log(counter.increment())
+console.log(counter.decrement())
+console.log(counter.decrement())
