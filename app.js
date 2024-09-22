@@ -82,3 +82,46 @@ let facNum = 5,
 if (facNum === 0) return 1
 for (let i = 1; i <= facNum; i++) facNumRes *= i
 console.log(`factorial of Number:${facNum} is ${facNumRes}`)
+
+// -------------------------------------------------Object Series------------------------------
+
+const RajamouliFilms = [
+  { name: "Prabhas", film: "Chatrapati" },
+  { name: "Jr NTR", film: "Yamadonga" },
+  { name: "Prabhas", film: "Bahubali 1" },
+  { name: "Prabhas", film: "Bahubali 2" },
+  { name: "Jr NTR", film: "Student No 1" },
+  { name: "Jr NTR", film: "RRR" },
+  { name: "Ravi Teja", film: "Vikramarkudu" },
+  { name: "Jr NTR", film: "Simhadri" },
+  { name: "Ram Charan", film: "RRR" },
+  { name: "Sunil", film: "Maryada Ramanna" },
+  { name: "Ram Charan", film: "Magadheera" },
+  { name: "Nani & Sudeep", film: "Eega" },
+]
+
+const groupedByActor = RajamouliFilms.reduce((acc, currentFilm) => {
+  if (acc[currentFilm.name]) {
+    acc[currentFilm.name].push(currentFilm.film)
+  } else {
+    acc[currentFilm.name] = [currentFilm.film]
+  }
+  return acc
+}, {})
+
+console.log("Rajamouli films grouped by actor", groupedByActor)
+
+// Shallow Copy vs Deep Copy
+
+// Shallow Copy
+let original = { name: "Ramesh", address: { city: "Vizag" } }
+let shallowCopy = { ...original }
+shallowCopy.address.city = "Tirupati"
+
+console.log(original)
+
+// Deep Copy
+let deepCopy = JSON.parse(JSON.stringify(original))
+deepCopy.address.city = "Bangalore"
+
+console.log(original)
