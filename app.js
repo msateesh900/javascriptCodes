@@ -8,19 +8,19 @@ let strRev = "Hello Javascript",
   strRevRes = ""
 
 for (let char of strRev) strRevRes = char + strRevRes
-console.log(`string reverse using for of loop: ${strRevRes}`)
+// console.log(`string reverse using for of loop: ${strRevRes}`)
 
 for (let i = strRev.length - 1; i >= 0; i--) strRevRes += strRev[i]
-console.log(`string reverse using Plain for loop: ${strRevRes}`)
+// console.log(`string reverse using Plain for loop: ${strRevRes}`)
 // method2
-console.log(
-  "string reverse using predefinec methods:",
-  strRev.split("").reverse().join("")
-)
+// console.log(
+//   "string reverse using predefinec methods:",
+//   strRev.split("").reverse().join("")
+// )
 
 // --------------------------2 Occurances of characters in string -------------
 
-let occStr = "Hello World checking occurances"
+let occStr = "HelloWorld"
 
 let occStrRes = {}
 
@@ -31,7 +31,7 @@ console.log("occurances of characters in string using for of loop", occStrRes)
 
 // --------------------------3 Highest word in string -------------
 
-let higStr = "Hello World checking occurances"
+let higStr = "Hello World javascript"
 
 let higStrSplit = higStr.split(" "),
   higStrRes = ""
@@ -61,19 +61,20 @@ console.log("Removing duplicates from string:", dupStrRes)
 let anStr1 = "Hello World",
   anStr2 = "World Hello"
 
-if (anStr1.split(" ").sort().join(" ") === anStr2.split(" ").sort().join(" "))
-  console.log("String is anargham")
-else console.log("String is not anargham")
+// if (anStr1.split(" ").sort().join(" ") === anStr2.split(" ").sort().join(" "))
+// console.log("String is anargham")
+// else
+// console.log("String is not anargham")
 
 // --------------------------7 string copy -------------
 let strCopy = "String Copy",
   strCopyRes = strCopy
 
-console.log(`string copy of String:${strCopy} is ${strCopyRes} `)
+// console.log(`string copy of String:${strCopy} is ${strCopyRes} `)
 
 const ingredientsList = ["noodles", { list: ["eggs", "flour", "water"] }]
 const ingredientsListCopy = [...ingredientsList]
-console.log(ingredientsListCopy)
+console.log("ingredientsListCopy", ingredientsListCopy)
 // -------------------------------------------------Number Series------------------------------
 // --------------------------8 Factorial of number -------------
 
@@ -116,6 +117,8 @@ console.log("Rajamouli films grouped by actor", groupedByActor)
 // Shallow Copy
 let original = { name: "Ramesh", address: { city: "Vizag" } }
 let shallowCopy = { ...original }
+console.log(original)
+
 shallowCopy.address.city = "Tirupati"
 
 console.log(original)
@@ -149,3 +152,19 @@ console.log(counter.increment())
 console.log(counter.decrement())
 console.log(counter.decrement())
 console.log("first")
+
+function containsDuplicate(nums) {
+  let noDupsSet = new Set()
+  for (const num of nums) {
+    // if (noDupsSet.has(num)) {
+    //   return true
+    // }
+    noDupsSet.add(num)
+  }
+  // console.log(noDupsSet)
+  return noDupsSet
+}
+
+console.log("-----Has duplicates----")
+let nums1 = [8, 6, 4, 2, 6]
+console.log(containsDuplicate(nums1))
