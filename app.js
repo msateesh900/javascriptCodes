@@ -27,7 +27,7 @@ let occStrRes = {}
 for (let char of occStr)
   occStrRes[char] = occStrRes[char] ? occStrRes[char] + 1 : 1
 
-console.log("occurances of characters in string using for of loop", occStrRes)
+// console.log("occurances of characters in string using for of loop", occStrRes)
 
 // --------------------------3 Highest word in string -------------
 
@@ -39,7 +39,7 @@ let higStrSplit = higStr.split(" "),
 for (let word of higStrSplit)
   if (word.length > higStrRes.length) higStrRes = word
 
-console.log("Highest word in string using for of loop", higStrRes)
+// console.log("Highest word in string using for of loop", higStrRes)
 
 // --------------------------4 string to same key values to Object -------------
 
@@ -47,14 +47,14 @@ let keyValStr = "Object"
 
 const keyValStrRes = {}
 for (let char of keyValStr) keyValStrRes[char] = char
-console.log("String to same key values to object:", keyValStrRes)
+// console.log("String to same key values to object:", keyValStrRes)
 
 // --------------------------5 remove duplicates from string -------------
 let dupStr = "Hello World"
 
 const dupStrRes = []
 for (let char of dupStr) if (dupStrRes.indexOf(char) == -1) dupStrRes.push(char)
-console.log("Removing duplicates from string:", dupStrRes)
+// console.log("Removing duplicates from string:", dupStrRes)
 
 // --------------------------6 anorgham string -------------
 
@@ -74,7 +74,7 @@ let strCopy = "String Copy",
 
 const ingredientsList = ["noodles", { list: ["eggs", "flour", "water"] }]
 const ingredientsListCopy = [...ingredientsList]
-console.log("ingredientsListCopy", ingredientsListCopy)
+// console.log("ingredientsListCopy", ingredientsListCopy)
 // -------------------------------------------------Number Series------------------------------
 // --------------------------8 Factorial of number -------------
 
@@ -82,7 +82,7 @@ let facNum = 5,
   facNumRes = 1
 if (facNum === 0) return 1
 for (let i = 1; i <= facNum; i++) facNumRes *= i
-console.log(`factorial of Number:${facNum} is ${facNumRes}`)
+// console.log(`factorial of Number:${facNum} is ${facNumRes}`)
 
 // -------------------------------------------------Object Series------------------------------
 
@@ -110,24 +110,24 @@ const groupedByActor = RajamouliFilms.reduce((acc, currentFilm) => {
   return acc
 }, {})
 
-console.log("Rajamouli films grouped by actor", groupedByActor)
+// console.log("Rajamouli films grouped by actor", groupedByActor)
 
 // Shallow Copy vs Deep Copy
 
 // Shallow Copy
 let original = { name: "Ramesh", address: { city: "Vizag" } }
 let shallowCopy = { ...original }
-console.log(original)
+// console.log(original)
 
 shallowCopy.address.city = "Tirupati"
 
-console.log(original)
+// console.log(original)
 
 // Deep Copy
 let deepCopy = JSON.parse(JSON.stringify(original))
 deepCopy.address.city = "Bangalore"
 
-console.log(original)
+// console.log(original)
 
 // Implement Private Counter
 
@@ -146,12 +146,12 @@ const createCounter = () => {
 }
 
 const counter = createCounter()
-console.log(counter.increment())
-console.log(counter.increment())
-console.log(counter.increment())
-console.log(counter.decrement())
-console.log(counter.decrement())
-console.log("first")
+// console.log(counter.increment())
+// console.log(counter.increment())
+// console.log(counter.increment())
+// console.log(counter.decrement())
+// console.log(counter.decrement())
+// console.log("first")
 
 function containsDuplicate(nums) {
   let noDupsSet = new Set()
@@ -165,6 +165,84 @@ function containsDuplicate(nums) {
   return noDupsSet
 }
 
-console.log("-----Has duplicates----")
+// console.log("-----Has duplicates----")
 let nums1 = [8, 6, 4, 2, 6]
-console.log(containsDuplicate(nums1))
+// console.log(containsDuplicate(nums1))
+
+// Javascript
+
+let name = {
+  firstName: "Akshay",
+  lastName: "Saini",
+}
+
+let printName = function (hometown, state) {
+  console.log(
+    this.firstName + " " + this.lastName + " " + hometown + " " + state
+  )
+}
+
+let printMyName = printName.bind(name, "Dehradun")
+// printMyName("Uttarakhand")
+
+Function.prototype.myBind = function (...args) {
+  let obj = this,
+    params = args.slice(1)
+
+  return function (...args2) {
+    obj.apply(args[0], [...params, ...args2])
+  }
+}
+
+let printMyName2 = printName.myBind(name, "Dehradun")
+// printMyName2("Uttarakhand")
+
+// JS 50 coding programs
+
+// ----------------------1 let,const and var------------------------------
+
+const program1 = () => {
+  const fruits = () => {
+    console.log(fruit)
+    console.log(age)
+    var fruit = "apple"
+    let age
+  }
+  fruits()
+}
+
+// program1()
+
+// ----------------------2 setTimeout var------------------------------
+
+const program2 = () => {
+  for (var i = 0; i < 3; i++) setTimeout(() => console.log(i), 1) // 3 3 3
+}
+
+// program2()
+
+// ----------------------3 setTimeout let------------------------------
+
+const program3 = () => {
+  for (let i = 0; i < 3; i++) setTimeout(() => console.log(i), 1) // 0 1 2
+}
+
+// program3()
+
+// ----------------------4 Type conversion using +, - to boolean ---
+const program4 = () => {
+  console.warn(+true)
+  console.warn(typeof +true)
+  console.warn(+false)
+}
+
+// program4()
+
+// ----------------------5 Type conversion using ! to string ---
+
+const program5 = () => {
+  console.log(!"sateesh")
+  console.warn(typeof !"sateesh")
+}
+
+// program5()
