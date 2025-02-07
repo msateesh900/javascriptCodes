@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "my server",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "50programs": "nodemon javascript50Programs"
   },
   "devDependencies": {
     "nodemon": "~1.3.8"
