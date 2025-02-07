@@ -246,3 +246,53 @@ const program5 = () => {
 }
 
 // program5()
+
+const program6 = () => {
+  let big = "size"
+  const bird = {
+    size: "small",
+  }
+  console.warn(bird[big])
+  console.warn(bird["size"])
+  console.warn(bird.size)
+  console.warn(bird.data)
+}
+
+// program6()
+
+const program7 = () => {
+  const c = { name: "peter" }
+  // Object.freeze(c) // if don't want to make change object immutable object
+  const d = c
+  d.name = "anil"
+  console.log(d.name)
+}
+
+// program7()
+
+const program8 = () => {
+  var x
+  var x = 10
+  console.log(x)
+  let z
+  // let z = 20
+  console.log(z)
+}
+// program8()
+
+const program9 = () => {
+  // let z
+  let z = 20
+  console.log(z)
+}
+// program9()
+
+const program10 = () => {
+  let a = 3
+  let b = new Number(3)
+
+  console.log(a == b)
+  console.log(a === b)
+  console.log(typeof a, typeof b)
+}
+// program10()
