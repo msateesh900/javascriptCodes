@@ -96,4 +96,32 @@ const program11 = () => {
 
 // program11()
 
-const program12 = () => {}
+const program12 = () => {
+  const fruit = () => {
+    console.log("Woof!")
+  }
+  fruit.name = "apple"
+  fruit()
+}
+
+program12()
+
+const program13 = () => {
+  const sum = (a, b) => a + b
+  console.warn(sum(1, "2"))
+  console.warn(sum("1", 2))
+}
+program13()
+
+const program14 = () => {
+  let number = 0
+  console.log(number++) //0
+  console.log(++number) //2
+  console.log(number--) //2
+  console.log(--number) //0
+  console.log(number) //0
+}
+// program14()
+const program15 = () => {
+  const getAge = () => {}
+}
