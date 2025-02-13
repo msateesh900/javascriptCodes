@@ -12,11 +12,11 @@ const BoolStrNumConversion = () => {
 
 // ---------------------2---------------------
 
-let subStringSnippet = () => {
+const subStringSnippet = () => {
   let x = "Learn"
   // JS Engine will reverse the indexes when start index > end index
-  console.log(x.substring(5, 1))
-  console.log(x.substring(1, 5))
+  console.log(x.substring(5, 1)) // earn
+  console.log(x.substring(1, 5)) // earn
 }
 // subStringSnippet()
 
@@ -25,12 +25,12 @@ let subStringSnippet = () => {
 const setTimeoutSnippet = () => {
   for (var i = 0; i < 10; i++) {
     setTimeout(() => {
-      console.log(i)
+      console.log(i) // 10 prints in 10 times
     })
   }
   for (let i = 0; i < 10; i++) {
     setTimeout(() => {
-      console.log(i)
+      console.log(i) // 0,9 numbers printed on console
     })
   }
 }
@@ -52,20 +52,20 @@ const toStringCodeSnippet = () => {
 // toStringCodeSnippet()
 
 // ---------------------5---------------------
-additionCodeSnippet = () => {
+const additionCodeSnippet = () => {
   let a = 5,
     b = a++
-  console.log(a + b)
+  console.log(a + b) // 11
 }
 // additionCodeSnippet()
 
 // ---------------------6---------------------
-deleteKeywordSnippet = () => {
+const deleteKeywordSnippet = () => {
   // delete operator will not work on let, const, var variables and works only on object
   const name = "SaiKrishna"
-  age = 21
-  console.log(delete name)
-  console.log(delete age)
+  age = 21 // this will be added to global object
+  console.log(delete name) // false
+  console.log(delete age) // true
 }
 // deleteKeywordSnippet()
 
@@ -74,19 +74,19 @@ arrayPushSnippet = () => {
   let a = [1, 2],
     b = a
   b.push(3)
-  console.log(a)
+  console.log(a) // [1,2,3]
 }
 // arrayPushSnippet()
 
 // ---------------------8---------------------
-varibaleAssignmentSnippet = () => {
+const varibaleAssignmentSnippet = () => {
   // variable b get global allocation and it will be available over globally,
   //  so console.log(a) will make error outside mentioning "a" is not defined
   function data() {
     let a = (b = 5)
   }
   data()
-  console.log(b)
+  console.log(b) // 5
   //   console.log(a)// ReferenceError a is not defined
 }
 // varibaleAssignmentSnippet()
@@ -98,7 +98,7 @@ const arrayForEachSnippet = () => {
   // forEach value will be looped once the value is defined
   // so this case we have value defined at 4th index so only one time Hi will be printed in console
   x.forEach((i) => {
-    console.log("Hi")
+    console.log("Hi") // prints Hi one time
   })
 }
 // arrayForEachSnippet()
@@ -108,19 +108,20 @@ const arrayAdditionSnippet = () => {
   let a = [1],
     b = [2]
   // if we use array addition b/w them it is coverted internally to toString method
-  console.log(a + b)
+  console.log(a + b) //12
 }
 // arrayAdditionSnippet()
 
 // ---------------------11---------------------
-arraySliceSnippet = () => {
+const arraySliceSnippet = () => {
   var arrA = [1, 2]
   // slice method will create a shallow copy of the original array assign it to a new array
   // shallow copy primitive data types will be copied by value where as non primitive by reference
   var arrB = arrA.splice()
-  // console.log(arrB)
   arrB[0] = 42
-  console.log(arrB)
+  console.log(arrA) // [1,2]
+  console.log(arrB) // 42
+  console.log(arrA + arrB) //1,242
 
   var objA = {
     a: 1,
@@ -128,9 +129,83 @@ arraySliceSnippet = () => {
   }
   var objB = objA
   objB.a = 42
-  console.log(objA)
+  console.log(objA) // {a:42,b:1}
 }
-
-arraySliceSnippet()
+// arraySliceSnippet()
 
 // ---------------------12---------------------
+const ifVarGlobalScopeSnippet = () => {
+  if (false) var a = "Sai"
+  console.log(a) // undefined
+}
+// ifVarGlobalScopeSnippet()
+
+// ---------------------13---------------------
+const IIFEfalseSnippet = () => {
+  ;(function (num) {
+    console.log(num * num)
+  })(false) // 0
+}
+// IIFEfalseSnippet()
+
+// ---------------------14---------------------
+// associativity rule is from left to right
+const associativitySnippet = () => {
+  let x = 10 > 9 > 8
+  console.log(x === true) // false
+}
+// associativitySnippet()
+
+// ---------------------15---------------------
+const postFixincrementSnippet = () => {
+  let x = 1
+  x = x++
+  // y = x++
+  console.log(x) // 1
+}
+// postFixincrementSnippet()
+
+// ---------------------16---------------------
+const equalitySnippet = () => {
+  // JS will make a and b as numeric and makes empty array as 0 and false as 0
+  let a = [],
+    b = false
+  console.log(a == b) // true
+  console.log(a === b) // false
+}
+// equalitySnippet()
+
+// ---------------------17---------------------
+const unaryOpearatorSnippet = () => {
+  console.log(+true) //1
+  console.log(+false) //0
+  console.log(+"123") //123
+  console.log(+null) // 0
+}
+// unaryOpearatorSnippet()
+
+// ---------------------18---------------------
+const hoistingVarSnippet = () => {
+  x++
+  console.log(x) // NaN because we can't increment undefined x that hoisted
+  var x = 21
+}
+// hoistingVarSnippet() // NaN
+
+// ---------------------19---------------------
+const hoistingTwoVaribalesVarSnippet = () => {
+  y = 10 // creates object y in global scope
+  var x = 1 + y
+  console.log(x) //11
+}
+// hoistingTwoVaribalesVarSnippet()
+
+// ---------------------20---------------------
+const immutableStringSnippet = () => {
+  let str = "jscafe"
+  str[0] = "c"
+  console.log(str) // jscafe
+  str = "cscafe"
+  console.log(str) // cscafe
+}
+// immutableStringSnippet()
