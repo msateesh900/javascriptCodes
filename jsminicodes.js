@@ -209,3 +209,49 @@ const immutableStringSnippet = () => {
   console.log(str) // cscafe
 }
 // immutableStringSnippet()
+
+// ---------------------21---------------------
+const objAssginmentSnippet = () => {
+  const obj = { a: 1 }
+  obj.a = 2
+  console.log(obj)
+}
+// objAssginmentSnippet() // {a:2}
+
+// ---------------------22---------------------
+const objValueAssignmentSnippet = () => {
+  const x = { name: "sai" }
+  const arr = ["name"]
+  x[arr] = "krishna"
+  console.log(x.name)
+}
+// objValueAssignmentSnippet() // krishna
+
+// ---------------------23---------------------
+const valPreAndPostIncrementSnippet = () => {
+  let x = 1,
+    y = 2
+  console.log(x++ + ++y) // 4
+}
+// valPreAndPostIncrementSnippet()
+
+// ---------------------24---------------------
+const NaNSnippet = () => {
+  let x = NaN,
+    y = NaN
+  console.log(x === y) // false
+  console.log(isNaN(x) === isNaN(y)) // true
+}
+// NaNSnippet()
+
+// ---------------------24---------------------
+const objLiteralFunctionSnippet = () => {
+  const person = {
+    name: "Sam",
+    hello: function () {
+      console.log(this.name)
+    },
+  }
+  person.hello()
+}
+objLiteralFunctionSnippet()
